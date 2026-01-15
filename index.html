@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahabat Pos - Adventure Partner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Konfigurasi Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mountain-dark': '#0f172a',
+                        'forest-green': '#14532d',
+                        'sunset-orange': '#ea580c',
+                        'sand': '#f5f5f4',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-mountain-dark text-sand font-sans min-h-screen relative overflow-x-hidden selection:bg-sunset-orange selection:text-white">
+
+    <!-- Background Pattern -->
+    <div class="fixed inset-0 opacity-5 pointer-events-none z-0" style="background-image: url('https://www.transparenttextures.com/patterns/topography.png');"></div>
+
+    <!-- AUDIO -->
+    <audio id="adventure-audio" loop>
+        <source src="https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Main Container -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 py-8 md:py-12 blur-container transition-all duration-300">
+        
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 md:gap-0">
+            <div class="flex items-center gap-3">
+                <!-- LOGO HEADER (Diupdate ke Image) -->
+                <div class="bg-sunset-orange/10 p-1 rounded-lg border border-sunset-orange/20">
+                    <img src="IMG_8007.PNG" alt="Logo Sahabat Pos" class="w-10 h-10 object-contain">
+                </div>
+                <div>
+                    <h1 class="font-serif text-2xl font-bold tracking-wide">Sahabat Pos</h1>
+                    <p class="text-xs text-gray-400 uppercase tracking-widest">Adventure Partner</p>
+                </div>
+            </div>
+            <!-- Lokasi -->
+            <div class="text-sm text-gray-400 flex flex-col md:items-end text-center md:text-right">
+                <span class="mb-1">Est. 2024</span>
+                <span class="flex items-center justify-center md:justify-end gap-1 text-xs md:text-sm">
+                    <i data-lucide="map-pin" class="w-3 h-3 text-sunset-orange"></i> 
+                    Basecamp: Pahlawan Setia, Tarumajaya, Bekasi Utara
+                </span>
+            </div>
+        </header>
+
+        <!-- BENTO GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-min">
+
+            <!-- 1. Hero Profile -->
+            <div class="widget-card col-span-1 md:col-span-2 row-span-2 relative rounded-3xl overflow-hidden group h-[400px] md:h-auto">
+                <!-- Menggunakan gambar WhatsApp sesuai permintaan -->
+                <img src="WhatsApp Image 2026-01-12 at 00.29.21.jpeg" 
+                     alt="Hiker" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-mountain-dark via-transparent to-transparent opacity-90"></div>
+                
+                <div class="absolute bottom-0 left-0 p-6 w-full">
+                    <div class="bg-sunset-orange text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">OPEN TRIP & GUIDE</div>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-2 leading-tight">Menjelajah Alam <br> Lebih Bermakna.</h2>
+                    <p class="text-gray-300 text-sm md:text-base max-w-md mb-4">Partner perjalanan profesional, aman, dan bersahabat.</p>
+                    <button onclick="openWAModal()" class="inline-flex items-center gap-2 text-white border-b border-sunset-orange pb-1 hover:text-sunset-orange transition-colors cursor-pointer">
+                        Mulai Petualangan <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 2. About -->
+            <div class="widget-card glass-panel col-span-1 md:col-span-2 rounded-3xl p-6 flex flex-col justify-center">
+                <div class="flex items-center gap-3 mb-3">
+                    <i data-lucide="tent" class="text-sunset-orange w-5 h-5"></i>
+                    <h3 class="font-bold text-lg">Tentang Sahabat Pos</h3>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Sahabat Pos melayani jasa guide, porter, dan manajemen perjalanan outdoor dengan standar keamanan tinggi.</p>
+                
+                <div class="border-t border-gray-700 pt-3">
+                    <div class="flex items-start gap-2 text-xs text-gray-400">
+                        <i data-lucide="map" class="w-4 h-4 text-sunset-orange mt-0.5"></i>
+                        <span>Pahlawan Setia, Tarumajaya, Bekasi Utara</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 & 4 Stats -->
+            <div class="widget-card bg-forest-green col-span-1 rounded-3xl p-6 text-center flex flex-col items-center justify-center relative overflow-hidden">
+                <h4 class="text-4xl font-bold text-white mb-1">50+</h4>
+                <p class="text-green-200 text-xs uppercase tracking-wider">Gunung Didaki</p>
+            </div>
+            <div class="widget-card bg-slate-700 col-span-1 rounded-3xl p-6 text-center flex flex-col items-center justify-center relative overflow-hidden">
+                <h4 class="text-4xl font-bold text-white mb-1">200+</h4>
+                <p class="text-gray-400 text-xs uppercase tracking-wider">Pendaki Terpandu</p>
+            </div>
+
+            <!-- 5. Services -->
+            <div class="widget-card glass-panel col-span-1 md:col-span-1 row-span-2 rounded-3xl p-6">
+                <h3 class="font-serif text-xl font-bold mb-6 border-b border-gray-700 pb-2">Layanan</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3 text-sm"><i data-lucide="compass" class="text-sunset-orange w-4 h-4"></i> Mountain Guide</li>
+                    <li class="flex items-center gap-3 text-sm"><i data-lucide="backpack" class="text-sunset-orange w-4 h-4"></i> Porter Service</li>
+                    <li class="flex items-center gap-3 text-sm"><i data-lucide="camera" class="text-sunset-orange w-4 h-4"></i> Dokumentasi</li>
+                    <li class="flex items-center gap-3 text-sm"><i data-lucide="coffee" class="text-sunset-orange w-4 h-4"></i> Outdoor Chef</li>
+                </ul>
+            </div>
+
+            <!-- 6. Gallery Widget -->
+            <a href="gallery.html" class="widget-card col-span-1 md:col-span-3 rounded-3xl overflow-hidden relative group min-h-[250px] cursor-pointer block">
+                <div class="absolute inset-0 bg-black/40 z-20 p-6 flex flex-col justify-end">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <h3 class="text-white font-serif text-2xl group-hover:text-sunset-orange transition-colors">Galeri Jejak</h3>
+                            <p class="text-gray-300 text-xs">Klik untuk melihat koleksi lengkap</p>
+                        </div>
+                        <div class="bg-white/20 p-2 rounded-full backdrop-blur-sm group-hover:bg-sunset-orange transition-colors">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 h-full">
+                    <!-- Menggunakan gambar WhatsApp sesuai permintaan -->
+                    <img src="WhatsApp Image 2026-01-12 at 00.29.22.jpeg" class="h-full object-cover">
+                    <img src="WhatsApp Image 2026-01-12 at 00.29.21 (1).jpeg" class="h-full object-cover">
+                    <img src="WhatsApp Image 2026-01-12 at 00.29.20.jpeg" class="h-full object-cover hidden md:block">
+                </div>
+            </a>
+
+            <!-- 7. Schedule -->
+            <div class="widget-card bg-stone-900 col-span-1 md:col-span-2 rounded-3xl p-6 flex items-center justify-between">
+                <div>
+                    <p class="text-sunset-orange text-xs font-bold mb-1">NEXT TRIP</p>
+                    <h3 class="text-xl font-bold mb-2">Gunung Merbabu</h3>
+                    <div class="flex items-center gap-2 text-gray-400 text-sm">25 - 27 Agustus 2025</div>
+                </div>
+                <button onclick="openWAModal()" class="bg-sunset-orange text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-orange-700 transition">Join</button>
+            </div>
+
+        </div> <!-- End Grid -->
+        
+        <footer class="mt-12 text-center text-gray-500 text-sm py-6 border-t border-gray-800">
+            <p>&copy; 2025 Sahabat Pos Adventure. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- MODAL WHATSAPP & QR CODE -->
+    <div id="wa-modal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeWAModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative bg-white text-gray-900 p-6 rounded-3xl max-w-sm w-full mx-4 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="wa-modal-content">
+            <button onclick="closeWAModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div class="text-center">
+                <h3 class="font-serif text-2xl font-bold mb-2">Scan & Chat</h3>
+                <p class="text-gray-500 text-sm mb-6">Scan QR atau klik tombol di bawah untuk terhubung dengan Admin.</p>
+                
+                <div class="bg-white p-2 border-2 border-dashed border-gray-300 rounded-xl inline-block mb-6">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://api.whatsapp.com/send?phone=628588022577" alt="QR Code WhatsApp" class="w-40 h-40">
+                </div>
+
+                <a href="https://api.whatsapp.com/send?phone=628588022577" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="flex items-center justify-center gap-2 w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-green-200">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    Buka WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING TOOLBAR -->
+    <div id="contact" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+        <div class="bg-gray-900/90 backdrop-blur-md border border-gray-700 p-2 rounded-full shadow-2xl flex items-center gap-2 pr-4 pl-2">
+            
+            <!-- LOGO TOOLBAR (Diupdate ke Image) -->
+            <div class="bg-gray-800 rounded-full w-10 h-10 flex items-center justify-center border border-gray-600 overflow-hidden">
+                <img src="IMG_8007.PNG" alt="SP" class="w-full h-full object-cover">
+            </div>
+
+            <div class="h-6 w-px bg-gray-700 mx-1"></div>
+            
+            <button id="music-toggle" class="group w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-800">
+                <div id="music-bars" class="flex gap-0.5 items-end h-4 paused">
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                </div>
+            </button>
+
+            <!-- Instagram Link -->
+            <a href="https://instagram.com/sahabatpos_adventure" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-800 group relative">
+                <i data-lucide="instagram" class="w-5 h-5 text-gray-300 group-hover:text-pink-500"></i>
+            </a>
+
+            <button onclick="openWAModal()" class="w-10 h-10 flex items-center justify-center rounded-full bg-green-600 hover:bg-green-500 shadow-lg shadow-green-900/50">
+                <i data-lucide="message-circle" class="w-5 h-5 text-white"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

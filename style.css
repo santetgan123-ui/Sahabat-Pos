@@ -1,0 +1,77 @@
+/* --- CORE STYLES --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0f172a; 
+}
+::-webkit-scrollbar-thumb {
+    background: #334155; 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #475569; 
+}
+
+/* Glassmorphism */
+.glass-panel {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Widget Hover Effect */
+.widget-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.widget-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    border-color: rgba(234, 88, 12, 0.5);
+}
+
+/* Music Equalizer */
+.bar {
+    width: 3px;
+    background-color: #ea580c;
+    animation: equalize 1s infinite;
+}
+.bar:nth-child(1) { animation-delay: 0.1s; height: 10px; }
+.bar:nth-child(2) { animation-delay: 0.3s; height: 16px; }
+.bar:nth-child(3) { animation-delay: 0.5s; height: 12px; }
+
+@keyframes equalize {
+    0% { height: 8px; }
+    50% { height: 16px; }
+    100% { height: 8px; }
+}
+
+.paused .bar {
+    animation-play-state: paused;
+    height: 4px !important;
+}
+
+/* --- MODAL STYLES (NEW) --- */
+/* Saat modal aktif, background di-blur */
+.blur-active {
+    filter: blur(5px);
+    pointer-events: none;
+    user-select: none;
+}
+
+#wa-modal {
+    display: none; /* Default hidden, JS will manage display: flex */
+}
+
+/* --- SECURITY STYLES (ANTI COPY) --- */
+/* Mencegah seleksi teks (optional, hapus jika ingin user bisa copy teks) */
+body {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+/* Allow selection on inputs and paragraphs if needed, but blocking globally */
+p, h1, h2, h3, h4, span {
+    cursor: default;
+}
